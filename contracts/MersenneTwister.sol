@@ -40,7 +40,7 @@ contract MersenneTwiser {
   // @dev: Extract tempered valued based on MT[index]
   function extract_number() public returns (uint) {
     if(index >= n) {
-      assert(index == n);
+      revert(index > n);
       twist();
     }
 
