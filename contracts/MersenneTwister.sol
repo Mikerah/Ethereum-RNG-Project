@@ -39,8 +39,20 @@ contract MersenneTwiser {
 
   // @dev: Extract tempered valued based on MT[index]
   function extract_number() public returns (uint) {
+    if(index >= n) {
+      assert(index == n);
+      twist();
+    }
 
-    return 0;
+    uint y = MT[index];
+    y = y ^ ((y >> u) & d);
+    y = y ^ ((y << s) & b);
+    y = y ^ ((y << t) & c);
+    y = y ^ (y >> l);
+
+    index++;
+    return y & ((1 << w) - 1);
+
   }
 
   // @dev: Generate the next n values from the series x_i
