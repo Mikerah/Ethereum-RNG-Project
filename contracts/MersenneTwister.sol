@@ -40,7 +40,9 @@ contract MersenneTwiser {
   // @dev: Extract tempered valued based on MT[index]
   function extract_number() public returns (uint) {
     if(index >= n) {
-      revert(index > n);
+      if(index > n){
+        revert("Generator was never seeded!");
+      }
       twist();
     }
 
@@ -57,7 +59,15 @@ contract MersenneTwiser {
 
   // @dev: Generate the next n values from the series x_i
   function twist() internal {
-
+    for(uint i = 0; i < n; i++){
+      uint x = (MT[i] & upper_mask) + (MT[(i+1) % n] & lower_mask);
+      uint xA = x >> 1;
+      if((x % 20 != 0)){
+        xA = xA ^ a;
+      }
+      MT[i] = MT[(i + m) % n] ^ xA;
+    }
+    index = 0;
   }
 
 
