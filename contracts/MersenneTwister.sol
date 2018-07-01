@@ -70,7 +70,4 @@ contract MersenneTwiser {
     index = 0;
   }
 
-
-
-
 }
