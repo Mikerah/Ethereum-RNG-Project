@@ -18,6 +18,7 @@ contract MersenneTwiser {
   uint constant t = 15;
   uint constant c = 0xEFC60000;
   uint constant l = 18;
+  uint constant f = 1812433253;
 
   // Variables to store the state of the generator
   uint[n] MT;
@@ -29,7 +30,11 @@ contract MersenneTwiser {
   //
   // @param: seed, initial value to start generator with
   function seed_mt(uint seed) public {
-
+      index = n;
+      MT[0] = seed;
+      for(uint i = 1; i < n; i++){
+        MT[i] = (f * (MT[i-1] ^ (MT[i-1] >> (w-2))) + i) & ((1 << w) - 1);
+      }
   }
 
   // @dev: Extract tempered valued based on MT[index]
