@@ -13,4 +13,4 @@ The generators that I anticipated implementing are:
 * Xorooshiro128+
 
 # Warning
-Please note that all the code in this repository is in development and shouldn't be used in production. It can cause the loss of large somes of money and introduce vulnerabilities into your smart contracts
+Please note that all the code in this repository is in development and shouldn't be used in production. It can cause the loss of large sums of money and introduce vulnerabilities into your smart contracts.
