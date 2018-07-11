@@ -10,7 +10,8 @@ The generators that I anticipated implementing are:
 * Linear-feedback shift registers
 * Various WELL generators
 * Xorshift
-* Xorooshiro128+
+* Xoroshiro128+
+* Various PCG generators
 
 # Warning
 Please note that all the code in this repository is in development and shouldn't be used in production. It can cause the loss of large sums of money and introduce vulnerabilities into your smart contracts.
