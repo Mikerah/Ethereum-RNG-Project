@@ -2,7 +2,7 @@ pragma solidity ^0.4.23;
 
 // Solidity implementation of the Mersenne Twister, the most commonly pseudo-random number generator
 
-contract MersenneTwiser {
+contract MersenneTwister {
 
   // Set constant coefficients for MT19937-32 as defined here:
   // https://en.wikipedia.org/wiki/Mersenne_Twister
@@ -32,6 +32,7 @@ contract MersenneTwiser {
   function seed_mt(uint seed) public {
       index = n;
       MT[0] = seed;
+      
       for(uint i = 1; i < n; i++){
         MT[i] = (f * (MT[i-1] ^ (MT[i-1] >> (w-2))) + i) & ((1 << w) - 1);
       }
